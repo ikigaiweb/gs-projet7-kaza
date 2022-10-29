@@ -1,32 +1,35 @@
-import React from "react"; // J'importe React + UseState
-import "./StarRating.css";
-import OrangeStar from "./OrangeStar.png";
-import LightGreyStar from "./LightGreyStar.png";
-import HouseData from "../ASSETS/HouseData";
+import React from "react";                                           // J'importe React 
+import "./StarRating.css";                                           // J'importe mon Css
+import OrangeStar from "./OrangeStar.png";                           // J'importe mon image d'etoile orange
+import LightGreyStar from "./LightGreyStar.png";                     // J'importe mon image d'etoile argenté
 
 function StarRating(props) {
-	const OrangeStars = () => {
-		return <img src={OrangeStar} alt="Orange star" />;
-	};
-	console.log(props.id);
-	console.log(props.starValue);
-	
-	
-    const LightGreyStars = () => {
-		return <img src={LightGreyStar} alt="Silver star" />;
-	};
+    const OrangeStars = () => {                                      // je cree une fonction à propos de l'etoile orange ce qui me permet de la declarer comme img et aussi de lui ajouter un alt
+        return <img src={OrangeStar} alt="Orange star" />;
+    };
+    console.log(props.id);                                           // me donne l'ID de la page location
+    console.log(props.starValue);                                    // me donne le nombre d'etoile accordé
 
-	return (
-		<div className="starRating " >
-       
-			{Array.from({length: props.starValue}, (a,b) => (
-				<OrangeStars key={props.starValue + b}/>
-			))}
-            {Array.from({length: 5 - (props.starValue)}, (a,b) => (
-                <LightGreyStars key={props.starValue +b}/>))}
-		</div>
-	);
+    const LightGreyStars = () => {                                   // je cree une fonction à propos de l'etoile argenté ce qui me permet de la declarer comme img et aussi de lui ajouter un alt
+        return <img src={LightGreyStar} alt="Silver star" />;        
+    };
+
+    return (
+        <div className="starRating ">
+            {Array.from({ length: props.starValue }, (a, b) => (     // Permet de recreer un tableau (length etant la propriété de Array)
+                <OrangeStars key={props.starValue + b} />            // Création d'une clé unique
+            ))}
+            {Array.from({ length: 5 - props.starValue }, (a, b) => ( // Permet de recreer un tableau en partant de 5 - (etoiles oranges) = etoiles argentées
+                <LightGreyStars key={props.starValue + b} />         // Création d'une clé unique
+            ))}
+        </div>
+    );
 }
 export default StarRating;
 
+/*
+La méthode Array.from() renvoie un tableau à partir de n'importe quel objet avec une propriété de longueur.
 
+
+
+*/ 
