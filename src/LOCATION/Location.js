@@ -1,39 +1,26 @@
 import React from "react";                            // j'importe Réact
 import "./Location.css";                              // j'importe mon CSS
 import Dropdown from "../DROPDOWN/Dropdown-Mini";     // j'importe le composant dropdown mini
-import { useParams, Navigate} from "react-router-dom";         // j'importe UseParams (me permet de decortiquer l'url et dans ce cas de recuperer l'ID)
+import { useParams } from "react-router-dom";         // j'importe UseParams (me permet de decortiquer l'url et dans ce cas de recuperer l'ID)
 import HouseData from "../ASSETS/HouseData.js";       // j'importe mes données
 import StarRating from "../STAR-RATING/StarRating.js";// j'importe le composant qui me permet ne noté les étoiles
 import SlideShow from "../SLIDESHOW/SlideShow";       // j'importe le composant du carrousselle
 import Avatar from "../AVATAR/Avatar";                // j'importe le composant qui me permet d'afficher la photo du proprietaire
 import AvatarMobile from "../AVATAR/AvatarMobile";    // j'importe le composant qui me permet d'afficher la photo du proprietaire version Mobile
+import WrongID from "./WrongID"
+
 export default function Location() {
 
     const { id } = useParams();                                           // on "déstructure l'ID" on retourne un useParams       
     const locationChosen = HouseData.findIndex((obj) => obj.id === id);   // FindIndex va me permettre de "travailler sur chaque élément du tableau" ****
-    const allId = HouseData.map(element => element.id);
-    const idWrong = allId.some((elmt) => elmt);
-
-  console.log(locationChosen);
-  console.log(allId);
-  console.log(id);
- console.log(idWrong.elmt === locationChosen.id);
-
-  const IdError = () => {  
-  if (idWrong.elmt === locationChosen.id) {
-        console.log("Tu y es presque")
-  }
-else {
-    <Navigate to="/*" />
-}}
-  
+   
 const myTags = HouseData[locationChosen].tags;
 console.log(myTags);     
 
     return (
      
         <div className="Location-main">
-    <IdError />
+   <WrongID />
             <div className="Location-Carrousel">
                 <SlideShow                                                //  j'importe le composant du carrousselle ICI 
                     img={HouseData[locationChosen].pictures}              // avec ses images ( lier au props.img dans les fichiers enfants)
@@ -88,18 +75,7 @@ console.log(myTags);
                 />
                 <Dropdown                                                 // j'importe le composant qui me donnera les equipement de chaque appart depuis mes données
                     title="Equipement"
-                    content={
-                        <ul>
-                            <li>{HouseData[locationChosen].equipments[0]}</li>
-                            <li>{HouseData[locationChosen].equipments[1]}</li>
-                            <li>{HouseData[locationChosen].equipments[2]}</li>
-                            <li>{HouseData[locationChosen].equipments[3]}</li>
-                            <li>{HouseData[locationChosen].equipments[4]}</li>
-                            <li>{HouseData[locationChosen].equipments[5]}</li>
-                        </ul>
-                    }
-                    key={HouseData[locationChosen].equipments}            // sa clé unique
-                />
+                    content={HouseData[locationChosen].equipments.map((item)=> <li key={item}>{item}</li>)} />
             </div>
         </div>
        );
