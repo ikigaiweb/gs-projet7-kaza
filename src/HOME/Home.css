@@ -32,11 +32,9 @@
     right: 5px;
     color: white;
     text-align: center;
-    font-family: Montserrat;
     vertical-align: middle;
     font-size: 48px;
     line-height: 223px;
-    font-weight: 500;
 }
 .filtreSombre {                        /* Rajout d'un filtre sombre pour donner un effet sur la banniere */
     background: url(../ASSETS/Background.png);

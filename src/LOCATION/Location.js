@@ -1,27 +1,39 @@
 import React from "react";                            // j'importe Réact
 import "./Location.css";                              // j'importe mon CSS
 import Dropdown from "../DROPDOWN/Dropdown-Mini";     // j'importe le composant dropdown mini
-import { useParams} from "react-router-dom";         // j'importe UseParams (me permet de decortiquer l'url et dans ce cas de recuperer l'ID)
+import { useParams, Navigate} from "react-router-dom";         // j'importe UseParams (me permet de decortiquer l'url et dans ce cas de recuperer l'ID)
 import HouseData from "../ASSETS/HouseData.js";       // j'importe mes données
 import StarRating from "../STAR-RATING/StarRating.js";// j'importe le composant qui me permet ne noté les étoiles
 import SlideShow from "../SLIDESHOW/SlideShow";       // j'importe le composant du carrousselle
 import Avatar from "../AVATAR/Avatar";                // j'importe le composant qui me permet d'afficher la photo du proprietaire
 import AvatarMobile from "../AVATAR/AvatarMobile";    // j'importe le composant qui me permet d'afficher la photo du proprietaire version Mobile
-function Location() {
-    const { id } = useParams();                                           // on "déstructure l'ID" on retourne un useParams
-             
+export default function Location() {
+
+    const { id } = useParams();                                           // on "déstructure l'ID" on retourne un useParams       
     const locationChosen = HouseData.findIndex((obj) => obj.id === id);   // FindIndex va me permettre de "travailler sur chaque élément du tableau" ****
-    const myTags = HouseData[locationChosen].tags;
-  console.log(myTags);
+    const allId = HouseData.map(element => element.id);
+    const idWrong = allId.some((elmt) => elmt);
+
   console.log(locationChosen);
+  console.log(allId);
+  console.log(id);
+ console.log(idWrong.elmt === locationChosen.id);
 
- 
-
-    //  et dans ce cas je vais récuperer chaque id de mes données                   
+  const IdError = () => {  
+  if (idWrong.elmt === locationChosen.id) {
+        console.log("Tu y es presque")
+  }
+else {
+    <Navigate to="/*" />
+}}
+  
+const myTags = HouseData[locationChosen].tags;
+console.log(myTags);     
 
     return (
+     
         <div className="Location-main">
-       
+    <IdError />
             <div className="Location-Carrousel">
                 <SlideShow                                                //  j'importe le composant du carrousselle ICI 
                     img={HouseData[locationChosen].pictures}              // avec ses images ( lier au props.img dans les fichiers enfants)
@@ -90,10 +102,10 @@ function Location() {
                 />
             </div>
         </div>
-    );
+       );
 }
 
-export default Location;
+
 
 /* 
 **** 

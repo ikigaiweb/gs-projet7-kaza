@@ -4,12 +4,9 @@
     justify-content: center;
 }
 
-.NotFound p,
-.Oups p,
-.Retour p,
-p {
-    font-family: "Montserrat";
-    font-style: normal;
+.NotFound-Oups p,
+.NotFound  p,
+.NotFound-BackHome p {
     display: block;
     color: #ff6060;
     text-align: center;
@@ -20,13 +17,11 @@ p {
     font-size: 288px;
     line-height: 411px;
     align-items: center;
-    text-align: center;
     position: relative;
     top: 50px;
 }
 
 .NotFound-Oups p {
-    font-weight: 500;
     font-size: 36px;
     line-height: 51px;
     align-items: flex-end;
@@ -35,7 +30,6 @@ p {
 }
 
 .NotFound-BackHome p {
-    font-weight: 500;
     font-size: 18px;
     line-height: 26px;
     align-items: flex-end;
