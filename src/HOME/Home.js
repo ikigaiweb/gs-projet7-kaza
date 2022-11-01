@@ -37,6 +37,3 @@ export default function Home() {                 // création d'une fonction que
         </div>
     );
 }
-/* 
-  <div className={["thumb", "filtreGradient "].join(" ")}>   technique qui me permet d'avoir 2 className Ensemble
-*/

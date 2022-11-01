@@ -11,5 +11,3 @@ export default function Avatar(props) {
         </div>
     );
 }
-
-/* Creation de l'"Avatar"  avec son nom + sa photo */

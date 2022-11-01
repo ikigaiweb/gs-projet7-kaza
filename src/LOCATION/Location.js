@@ -80,19 +80,3 @@ console.log(myTags);
         </div>
        );
 }
-
-
-
-/* 
-**** 
-findIndex() exécute une fonction pour chaque élément du tableau.
-findIndex() renvoie l'index (position) du premier élément qui réussit un test.
-findIndex() renvoie -1 si aucune correspondance n'est trouvée.
-findIndex() n'exécute pas la fonction pour les éléments de tableau vides.
-findIndex() ne modifie pas le tableau d'origine.
-
-https://www.w3schools.com/jsref/jsref_findindex.asp
-
-// {(id !== true)  && <Link to={'/*'}> </Link>}
-
-*/

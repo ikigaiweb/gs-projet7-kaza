@@ -11,4 +11,3 @@ export default function AvatarMobile(props) {
         </div>
     );
 }
-/* Creation de l'"Avatar"  avec son nom + sa photo Version Mobile */

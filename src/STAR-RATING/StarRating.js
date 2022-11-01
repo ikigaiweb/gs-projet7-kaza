@@ -26,10 +26,3 @@ function StarRating(props) {
     );
 }
 export default StarRating;
-
-/*
-La méthode Array.from() renvoie un tableau à partir de n'importe quel objet avec une propriété de longueur.
-
-
-
-*/ 
