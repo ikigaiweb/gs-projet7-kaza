@@ -59,8 +59,11 @@
     font-size: 18px;
     line-height: 26px;
 }
-DisplayNone {
+.DisplayNone {
     visibility: hidden;
+}
+.Visibility {
+    visibility:visible
 }
 
 @media (max-width: 768px) {

@@ -53,8 +53,9 @@ export default function SlideShow(props) {       // Creation de la fonction qui 
                 );
             })}
 
-            <BtnSlider moveSlide={nextSlide} direction={"next"} /> 
-            <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+            {props.img.length > 1 && <BtnSlider moveSlide={nextSlide} direction={"next"} /> }
+            {props.img.length > 1 && <BtnSlider  moveSlide={prevSlide} direction={"prev"} />}
+            
 
             <div className="SlideShow-PageNumbers">
                 {slideAnim.index} / {props.img.length}
