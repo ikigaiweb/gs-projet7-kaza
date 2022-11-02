@@ -44,28 +44,3 @@ export default function Dropdown(props) {                  // creation d'une fon
         </div>
     );
 }
-
-
-/*
-*** const est une variable d’état 
-    les [] permet la déstructuration ou décomposition (il s'agit d'un tableau et non d'un objet)
-    Toggle etant la valeur actuel
-    setToogle est une fonction qui permet de modifier la valeur de cet état
-        false étant la valeur initial du composant (la valeur de départ, on commence par false) (ca peut etre un chiffre, mot …. )
-
-***** USESTATE *****
-• useState est un hook, il nous renvoie une paire de valeurs dans un tableau de 2 éléments. 
-• useState  permet de stocker les données qui sont retournées.
-
-***** USEEFFECT *****
-• useEffect permet d'effectuer des effets : cela permet à notre composant d'exécuter des actions après l'affichage, en choisissant à quel moment cette action doit être exécutée.
-• Le hook  useEffect  est appelé après chaque rendu de votre composant.
-
-***** USEREF ***
-• useRef vous permet de conserver des valeurs entre les rendus.
-• Il peut être utilisé pour stocker une valeur modifiable qui ne provoque pas de nouveau rendu lors de la mise à jour.
-• useRef()ne renvoie qu'un seul élément. Il renvoie un objet appelé current.
-
- {props.content} qui sera lie au texte (content) qui nous sera donné du parent 
-
-*/

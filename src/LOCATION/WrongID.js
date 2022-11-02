@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import HouseData from "../ASSETS/HouseData";
-import NotFound from "../404/NotFound";
+// import NotFound from "../404/NotFound";
+import { Navigate } from "react-router-dom";
 
 export default function WrongID() {
     const { id } = useParams();                                         // on "déstructure l'ID" on retourne un useParams
@@ -10,7 +11,7 @@ export default function WrongID() {
     const idWrong = allId.some((elmt) => elmt);
     const idWrongElmt = idWrong.elmt;
     const locationChosenId = locationChosen.id;
-    const test = idWrongElmt !== locationChosenId;
+    const test = idWrongElmt === locationChosenId;
     console.log(test);
 
     console.log(locationChosen);
@@ -20,8 +21,11 @@ export default function WrongID() {
 
     const IdError = () => {
         if (test) {
-            console.log("ID ERROR");
-            return <NotFound />;
+          console.log(idWrong.elmt === locationChosen.id);
+        }
+        else {
+          console.log("ID ERROR");
+          return <Navigate to="/*" />
         }
     };
 
@@ -31,3 +35,4 @@ export default function WrongID() {
         </div>
     );
 }
+
